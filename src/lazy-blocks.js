@@ -22,14 +22,10 @@
     }
 
     function bind(func, obj) {
-        if (func.bind) {
-            return func.bind(obj);
-        }
-        else {
-            return function(func, obj) {
-                return func.apply(obj, arguments);
-            };
-        }
+        var args = Array.prototype.slice.call(arguments, 2);
+        return function() {
+            return func.apply(obj, args);
+        };
     };
 
     function on(el, ev, callback) {
