@@ -11,14 +11,14 @@
     'use strict';
     var lazyNum = 0;
 
-    function raf(f) {
+    function raf() {
         return (window.requestAnimationFrame ||
               window.webkitRequestAnimationFrame ||
               window.mozRequestAnimationFrame ||
               window.msRequestAnimationFrame ||
               function(cb) {
                 setTimeout(cb, 1000 / 60);
-              })(f);
+              });
     }
 
     function bind(func, obj) {
