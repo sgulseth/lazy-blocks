@@ -79,9 +79,9 @@
         this.aboveTheFold = params.aboveTheFold;
 
         if (params.callback) {
-            this.callback = bind(raf, null, bind(params.callback, null, params.element));
+            this.callback = bind(params.callback, null, this.element);
         } else {
-            this.callback = bind(raf, null, bind(defaultCallback, null, params.element));
+            this.callback = bind(defaultCallback, null, this.element);
         }
     };
 
