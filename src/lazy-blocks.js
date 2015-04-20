@@ -87,13 +87,11 @@
 
     Loader.prototype = {
         visible: function(scrollTop) {
-            var offset = this.element.getBoundingClientRect().top;
-
-            var bottom = offset.top + this.element.clientHeight + this.threshold;
+            var offset = this.element.getBoundingClientRect();
 
             return (
-                (scrollTop+window.innerHeight) >= (offset.top-this.threshold) &&
-                (scrollTop <= bottom || this.aboveTheFold === true)
+                 (offset.top-window.innerHeight-this.threshold) <= 0 &&
+                (offset.bottom+this.threshold >= 0 || this.aboveTheFold === true)
             );
         },
     };
