@@ -11,14 +11,16 @@
     'use strict';
     var lazyNum = 0;
 
-    function raf() {
-        return (window.requestAnimationFrame ||
-              window.webkitRequestAnimationFrame ||
-              window.mozRequestAnimationFrame ||
-              window.msRequestAnimationFrame ||
-              function(cb) {
-                setTimeout(cb, 1000 / 60);
-              });
+    function raf(cb) {
+        return function() {
+            return (window.requestAnimationFrame ||
+                  window.webkitRequestAnimationFrame ||
+                  window.mozRequestAnimationFrame ||
+                  window.msRequestAnimationFrame ||
+                  function(cb) {
+                    setTimeout(cb, 1000 / 60);
+                  })(cb);
+        }
     }
 
     function bind(func, obj) {
@@ -79,9 +81,9 @@
         this.aboveTheFold = params.aboveTheFold;
 
         if (params.callback) {
-            this.callback = bind(params.callback, null, this.element);
+            this.callback = raf(bind(params.callback, null, this.element));
         } else {
-            this.callback = bind(defaultCallback, null, this.element);
+            this.callback = raf(bind(defaultCallback, null, this.element));
         }
     };
 
