@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example: Lazy load codeblocks</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+        }
+    </style>
+    <body>
+        <div style="position:absolute;top:0;">
+            <img src="1x1.gif" data-src="http://placekitten.com/600/500" />
+        </div>
+        <div style="position:absolute;top:100%;">
+            <img src="1x1.gif" data-src="http://placekitten.com/600/400" />
+        </div>
+        <div style="position:absolute;top:200%;">
+            <img src="1x1.gif" data-src="http://placekitten.com/800/500" />
+        </div>
+        <div style="position:absolute;top:300%;">
+            <img src="1x1.gif" data-src="http://placekitten.com/700/500" />
+        </div>
+        <div style="position:absolute;top:350%;">
+            <img src="1x1.gif" data-src="http://placekitten.com/100/100" />
+        </div>
+        <div style="position:absolute;top:150%;">
+            <img src="1x1.gif" data-src="http://placekitten.com/300/500" />
+        </div>
+        <div style="position:absolute;top:550%;">
+            <img src="1x1.gif" data-src="http://placekitten.com/300/500" />
+        </div>
+        <div style="position:absolute;top:350%;">
+            <img src="1x1.gif" data-src="http://placekitten.com/320/400" />
+        </div>
+        <div style="position:absolute;top:450%;">
+            <img src="1x1.gif" data-src="http://placekitten.com/500/500" />
+        </div>
+        <script src="../src/lazy-blocks.js"></script>
+        <script>
+            var Lazy = new LazyBlocks({
+                elements: document.querySelectorAll('img[data-src]'),
+                callback: function(el) {
+                    el.setAttribute('src', el.getAttribute('data-src'));
+                    el.removeAttribute('data-src');
+                }
+            }).execute();
+        </script>
+    </body>
+</html>
