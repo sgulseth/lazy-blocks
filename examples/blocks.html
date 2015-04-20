@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example: Lazy load codeblocks</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+        }
+        .lazy-element {
+            display: block;
+            background-image: url('loader.gif');
+            background-repeat:no-repeat;
+            background-position: center center;
+        }
+        img {
+            display: block;
+        }
+    </style>
+    <body>
+        <code class="lazy-element" style="width:600px;height:500px;">
+            <!--<img src="http://placehold.it/600x500" />-->
+        </code>
+        <code class="lazy-element" style="width:600px;height:500px;">
+            <!--<img src="http://placehold.it/600x500" />-->
+        </code>
+        <code class="lazy-element" style="width:600px;height:500px;">
+            <!--<img src="http://placehold.it/600x500" />-->
+        </code>
+        <code class="lazy-element" style="width:600px;height:500px;">
+            <!--<img src="http://placehold.it/600x500" />-->
+        </code>
+        <code class="lazy-element" style="width:600px;height:500px;">
+            <!--<img src="http://placehold.it/600x500" />-->
+        </code>
+        <code class="lazy-element" style="width:600px;height:500px;">
+            <!--<img src="http://placehold.it/600x500" />-->
+        </code>
+        <code class="lazy-element" style="width:600px;height:500px;">
+            <!--<img src="http://placehold.it/600x500" />-->
+        </code>
+        <script src="../src/lazy-blocks.js"></script>
+        <script>
+            var Lazy = new LazyBlocks({
+                elements: document.querySelectorAll('.lazy-element')
+            }).execute();
+        </script>
+    </body>
+</html>
