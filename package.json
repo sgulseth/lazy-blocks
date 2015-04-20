@@ -2,12 +2,12 @@
   "name": "lazy-blocks",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/lazy-blocks.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Sindre Gulseth",
+  "license": "MIT",
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.10.0",
