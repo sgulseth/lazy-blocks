@@ -59,6 +59,7 @@
         var comment, i = 0;
         do {
             comment = element.childNodes[i];
+            i++;
         } while(comment.nodeType != 8 && i < element.childNodes.length);
 
         if (comment.nodeType === 8) {
